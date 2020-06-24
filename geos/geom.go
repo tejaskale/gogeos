@@ -468,6 +468,13 @@ func (g *Geometry) UnaryUnion() (*Geometry, error) {
 	return g.unaryTopo("UnaryUnion", cGEOSUnaryUnion)
 }
 
+// CascadedUnion computes the union of all the constituent geometries of the
+// geometry.
+func (g *Geometry) CascadedUnion() (*Geometry, error) {
+	return g.unaryTopo("CascadedUnion", cGEOSUnionCascaded)
+}
+
+
 // PointOnSurface computes a point geometry guaranteed to be on the surface of
 // the geometry.
 func (g *Geometry) PointOnSurface() (*Geometry, error) {
